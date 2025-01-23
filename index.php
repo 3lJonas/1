@@ -12,7 +12,7 @@ echo $usuario->Login($cedula,$contraseña);
 if($usuario->Login($cedula,$contraseña)){
     header('location: encuesta.php');
 }else{
-    echo "credenciales incorrectas";
+    $error= "no se encuentra registrado";
 }
 }
 
@@ -27,10 +27,11 @@ if($usuario->Login($cedula,$contraseña)){
 <body>
     <form method="POST">
         <h1>Login</h1>
-        <input type="text" name="cedula" placeholder="cedula"><br>
-        <input type="password" name="contraseña" placeholder="contraseña"><br>
+        <input type="text" name="cedula" placeholder="cedula" required><br>
+        <input type="password" name="contraseña" placeholder="contraseña" required><br>
         <button type="submit" name="login">Entrar</button>
         <button type="button" onclick="window.location.href='registrarse.php'">Registrarse</button>
     </form>
+    <?php if (isset($error)) echo "<p>$error</p>"; ?>
 </body>
 </html>

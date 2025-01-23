@@ -31,11 +31,11 @@ $rep2 = $reporte->respuestaP2();
     <h3>1.-¿Sabes programacion orientada a objetos?</h3>
     
     <?php foreach ($rep1 as $reporte) {
-        echo $reporte['p1'] . ": " . $reporte['total'];
+        echo $reporte['p1'] . ": " . $reporte['total']."<br>";
     } ?>
     <h3>1.-¿Sabes php?</h3>
     <?php foreach ($rep2 as $reporte) {
-        echo $reporte['p2'] . ": " . $reporte['total'];
+        echo $reporte['p2'] . ": " . $reporte['total']."<br>";
     } ?>
     <form method="POST">
         <button type="submit" name="cancelar">Cancelar</button>

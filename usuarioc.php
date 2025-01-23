@@ -17,7 +17,7 @@ public function Login($cedula,$contraseña){
     $resultado=$this->conn->query($sql);
     $usuario=$resultado->fetch_assoc();
 
-    if(password_verify($contraseña,$usuario['contraseña'])){
+    if($usuario && password_verify($contraseña,$usuario['contraseña'])){
        $_SESSION['id']=$usuario['id'];
        $_SESSION['cedula']=$usuario['cedula'];
        $_SESSION['nombre']=$usuario['nombre'];
@@ -26,9 +26,7 @@ public function Login($cedula,$contraseña){
        return true;
        
     }
-    echo $_SESSION['cedula'];
     return false;
-
 }
 public function estaLogueado(){
 return isset($_SESSION['id']);
