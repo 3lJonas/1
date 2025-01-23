@@ -46,20 +46,20 @@ $encuestaUsuario = $encuesta->existeEncuesta($id);
 </head>
 
 <body>
-    <?php if ($es_admin): ?>
+    <?php if ($es_admin){ ?>
         <h1>Bienvenido Administrador, solo tienes acceso a los reportes</h1>
         
         <button type="button" onclick="window.location.href='reporte.php'">Ver reporte</button>
 
-    <?php else: ?>
-        <?php if ($encuestaUsuario): ?>
+    <?php }else{ ?>
+        <?php if ($encuestaUsuario){ ?>
             <h1>Ya has contestado las preguntas</h1>
             <h3>1.-¿Sabes programacion orientada a objetos?</h3>
             <h4>Respuesta: <?php echo $encuestaUsuario['p1'] ?></h4>
             <h3>1.-¿Sabes php?</h3>
             <h4>Respuesta: <?php echo $encuestaUsuario['p2'] ?></h4>
 
-        <?php else: ?>
+        <?php }else{ ?>
             <form method="POST">
                 <h1>Bienvenido a la encuesta <?php echo $_SESSION['nombre']; echo " ".$_SESSION['apellido']; ?></h1>
                 <h3>a continuación responda las 2 preguntas para enviar:</h3>
@@ -74,7 +74,7 @@ $encuestaUsuario = $encuesta->existeEncuesta($id);
 
             </form>
 
-        <?php endif; endif; ?>
+        <?php }}?>
     <form method="POST">
         <button type="submit" name="cancelar">Cancelar</button>
     </form>
