@@ -1,0 +1,14 @@
+CREATE TABLE `encuestas` (
+  `id` int(11) Primary key auto_increment,
+  `usuario_id` int(11) NOT NULL references usuarios(id),
+  `p1` enum('SI','NO') NOT NULL,
+  `p2` enum('SI','NO') NOT NULL
+)
+CREATE TABLE `usuarios` (
+  `id` int(11) Primary key auto_increment,
+  `cedula` varchar(20) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `apellido` varchar(50) NOT NULL,
+  `contraseña` varchar(255) NOT NULL,
+  `es_admin` tinyint(1) NOT NULL DEFAULT 0
+)
